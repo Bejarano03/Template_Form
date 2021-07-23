@@ -17,5 +17,9 @@
   "bugs": {
     "url": "https://github.com/Bejarano03/Template_Form/issues"
   },
-  "homepage": "https://github.com/Bejarano03/Template_Form#readme"
+  "homepage": "https://github.com/Bejarano03/Template_Form#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.13.3"
+  }
 }
