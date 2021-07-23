@@ -3,6 +3,10 @@ const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
 
-// Middleware 
+// Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+// MongoDB connection
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/template");
+
