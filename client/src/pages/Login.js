@@ -27,32 +27,46 @@ function Login() {
     setFormObject({ ...formObject, [name]: value });
   }
 
-//   Handling Submit
-function handleFormSubmit(event) {
+  //   Handling Submit
+  function handleFormSubmit(event) {
     event.preventDefault();
     if (formObject.username && formObject.password) {
       API.saveMember({
-        title: formObject.username,
-        author: formObject.password
+        username: formObject.username,
+        password: formObject.password,
       })
-        .then(() => setFormObject({
-          title: "",
-          author: "",
-          synopsis: ""
-        }))
+        .then(() =>
+          setFormObject({
+            username: "",
+            password: "",
+          })
+        )
         .then(() => loadMembers())
-        .catch(err => console.log(err));
+        .catch((err) => console.log(err));
     }
-  };
+  }
 
   return (
     <div>
       <form>
         <label>Username</label>
-        <input label="username"></input>
+        <input
+          onChange={handleInputChange}
+          name="username"
+          placeholder="Username (required)"
+          value={formObject.username}
+        ></input>
         <label>Password</label>
-        <input></input>
-        <button>Submit</button>
+        <input
+          onChange={handleInputChange}
+          name="password"
+          placeholder="Password (required)"
+          value={formObject.password}
+        ></input>
+        <button
+        disabled={!(formObject.username && formObject.password)}
+        onClick={handleFormSubmit}
+        >Submit</button>
       </form>
     </div>
   );
