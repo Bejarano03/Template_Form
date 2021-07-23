@@ -10,3 +10,7 @@ app.use(express.json());
 // MongoDB connection
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/template");
 
+// Start server on
+app.listen(PORT, function () {
+  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+});
