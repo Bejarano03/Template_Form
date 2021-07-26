@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import API from "../utils/API";
 
-function Login() {
+function Signup() {
   // Components initial state
   const [members, setMembers] = useState([]);
   const [formObject, setFormObject] = useState({
@@ -72,4 +72,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Signup;
