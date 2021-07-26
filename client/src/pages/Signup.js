@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import API from "../utils/API";
+import Container from "@material-ui/core/Container";
 
 function Signup() {
   // Components initial state
@@ -48,7 +49,7 @@ function Signup() {
 
   return (
     <div>
-      <form>
+      <Container>
         <label>Username</label>
         <input
           onChange={handleInputChange}
@@ -67,7 +68,7 @@ function Signup() {
         disabled={!(formObject.username && formObject.password)}
         onClick={handleFormSubmit}
         >Submit</button>
-      </form>
+      </Container>
     </div>
   );
 }
