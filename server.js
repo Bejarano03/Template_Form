@@ -5,7 +5,7 @@ const app = express();
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const session = require("express-session");
-// const passport = require("./passport");
+const passport = require("./passport");
 
 // Middleware
 app.use(express.urlencoded({ extended: true }));
@@ -31,8 +31,8 @@ app.use( (req, res, next) => {
 });
 
 // Passport
-// app.use(passport.initialize())
-// app.use(passport.session())
+app.use(passport.initialize())
+app.use(passport.session())
 
 // Route connection
 app.use(routes);
