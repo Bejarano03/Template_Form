@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import API from "../utils/API";
 import Container from "@material-ui/core/Container";
 
+
 function Signup() {
   // Components initial state
   const [members, setMembers] = useState([]);
@@ -49,7 +50,8 @@ function Signup() {
 
   return (
     <div>
-      <Container>
+      <Container maxWidth="sm">
+        <form style={{display:"flex", justifyContent:"center", alignItems:"center", height:"100vh"}}>
         <label>Username</label>
         <input
           onChange={handleInputChange}
@@ -68,6 +70,7 @@ function Signup() {
         disabled={!(formObject.username && formObject.password)}
         onClick={handleFormSubmit}
         >Submit</button>
+        </form>
       </Container>
     </div>
   );
