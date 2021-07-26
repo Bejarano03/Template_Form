@@ -4,7 +4,7 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 const mongoose = require("mongoose");
 const routes = require("./routes");
-const session = require("express-sessions")
+const session = require("express-session")
 
 // Middleware
 app.use(express.urlencoded({ extended: true }));
@@ -16,7 +16,18 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Sessions
-app.use()
+app.use(
+  session({
+    secret: "Frenchie",
+    resave: false,
+    saveUninitialized: false
+  })
+)
+
+app.use( (req, res, next) => {
+  console.log('req.session', req.session);
+  next()
+});
 
 // Route connection
 app.use(routes);
